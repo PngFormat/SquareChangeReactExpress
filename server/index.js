@@ -3,19 +3,6 @@ import cors from 'cors';
 
 const app = express();
 
-const arr = [{
-    name:'skin',
-    id:1,
-    color: '#ffdfc4',
-},{
-    name:'orange',
-    id:2,
-    color:'#fcad03'
-},{
-    name:'green',
-    id:3,
-    color: '#20fc03'
-}]
 
 app.use(express.json())
 app.use(cors())
