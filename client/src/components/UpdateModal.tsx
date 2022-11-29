@@ -3,6 +3,7 @@ import Modal from 'react-clear-modal';
 import { IColor } from '../App';
 import axios from 'axios';
 
+
 interface UpdateModalProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
@@ -40,27 +41,33 @@ const UpdateModal: React.FC<UpdateModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
-      <input
-        className="shadow appearance-none border border-red-500 rounded w-100 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        placeholder="name"
-        value={name}
-        type="text"
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        className="shadow appearance-none border border-red-500 rounded w-100 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        placeholder="color"
-        value={color}
-        type="text"
-        onChange={(e) => setColor(e.target.value)}
-      />
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-5 "
-        onClick={handleUpdateColor}>
-        update
-      </button>
-    </Modal>
+
+      <Modal className=' backdrop-blur-2xl' isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
+          <div className='bg-gray-50' style={{height:450,width:570}}>
+            <h1 className='ml-10 text-4xl'>name color:</h1>
+              <input
+                className="shadow appearance-none border border-red-500 rounded w-100 py-4 px-6 mt-3 ml-10 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline text-4xl"
+                placeholder="name"
+                value={name}
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+              />
+            <h1 className='ml-10 text-4xl decoration-dotted'>rgb code:</h1>
+              <input
+                className="shadow appearance-none border border-red-500 rounded w-100 py-4 mt-3 ml-10 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline text-4xl"
+                placeholder="color"
+                value={color}
+                type="text"
+                onChange={(e) => setColor(e.target.value)}
+              />
+              <button
+                className="bg-blue-500  text-white font-bold py-6 px-12 rounded focus:outline-none  mt-5 ml-40 focus:shadow-outline my-5 text-4xl items-stretch"
+                onClick={handleUpdateColor}>
+                update
+              </button>
+          </div>
+      </Modal>
+
   );
 };
 
