@@ -42,7 +42,7 @@ const UpdateModal: React.FC<UpdateModalProps> = ({
 
   return (
 
-      <Modal className=' backdrop-blur-2xl' isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
+      <Modal className='backdrop-blur-2xl' isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
           <div className='bg-gray-50' style={{height:450,width:570}}>
             <h1 className='ml-10 text-4xl'>name color:</h1>
               <input

@@ -1,21 +1,28 @@
 import express from 'express';
 import cors from 'cors';
+import sequelize from './databaseProject.js'
+import {colorsRouter} from "./controllers/index.js";
 
 const app = express();
 
 
 app.use(express.json())
 app.use(cors())
-
-//get post put delete
-app.get('/',(request,response) => {
-    response.status(200).json(arr)
-})
-// app.post()
-// app.put()
-// app.delete('C/:WORLD OF TANKS')
+app.use('/colors', colorsRouter)
 
 
-app.listen(5001,() => {
-    console.log('Server started on port 5000')
-})
+
+const start = async () => {
+    try{
+        await sequelize.authenticate();
+        await sequelize.sync();
+        await app.listen(5001,()=> console.log('Server started on port 5001'));
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+start();
